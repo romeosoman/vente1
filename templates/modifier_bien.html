@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <title>Modifier Bien</title>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
+
+<div class="container mt-5">
+    <h2 class="mb-4">Modifier le bien</h2>
+
+
+    <form method="POST" enctype="multipart/form-data">
+        <div class="form-group">
+            <label>Numéro</label>
+            <input type="text" class="form-control" name="numero" value="{{ bien.numero }}" required>
+        </div>
+
+        <div class="form-group">
+            <label>Dénomination</label>
+            <input type="text" class="form-control" name="denomination" value="{{ bien.denomination }}" required>
+        </div>
+
+        <div class="form-group">
+            <label>Type</label>
+            <input type="text" class="form-control" name="type" value="{{ bien.type }}" required>
+        </div>
+
+        <div class="form-group">
+            <label>Matricule</label>
+            <input type="text" class="form-control" name="matricule" value="{{ bien.matricule }}" required>
+        </div>
+
+        <div class="form-group">
+            <label>État</label>
+            <textarea class="form-control" name="etat">{{ bien.etat }}</textarea>
+        </div>
+
+        <div class="form-group">
+            <label>Prix de départ (FCFA)</label>
+            <input type="number" step="0.01" class="form-control" name="prix_depart" value="{{ bien.prix_depart }}" required>
+        </div>
+
+        <div class="form-group">
+            <label>Changer la photo</label>
+            <input type="file" class="form-control" name="photo">
+            {% if bien.photo %}
+                <img src="{{ url_for('static', filename='uploads/' + bien.photo) }}" alt="Photo actuelle" width="150" class="mt-2">
+            {% endif %}
+        </div>
+
+        <button type="submit" class="btn btn-primary">Mettre à jour</button>
+        <a href="{{ url_for('admin_dashboard') }}" class="btn btn-secondary">Annuler</a>
+    </form>
+</div>
+
+</body>
+</html>

@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Détails du Bien</title>
+</head>
+<body>
+    <h1>Détails du Bien</h1>
+    <p><strong>Numéro :</strong> {{ bien.numero }}</p>
+    <p><strong>Dénomination :</strong> {{ bien.denomination }}</p>
+    <p><strong>Type :</strong> {{ bien.type }}</p>
+    <p><strong>Matricule :</strong> {{ bien.matricule }}</p>
+    <p><strong>État :</strong> {{ bien.etat }}</p>
+    <p><strong>Prix de départ :</strong> {{ bien.prix_depart }} FCFA</p>
+    <p><img src="{{ url_for('static', filename='images/' + bien.photo) }}" alt="{{ bien.denomination }}"></p>
+    <a href="/">Retour à l'accueil</a>
+</body>
+</html>
